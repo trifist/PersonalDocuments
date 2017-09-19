@@ -20,3 +20,19 @@ iconv [选项...] [文件...]
 -o, --output=FILE 输出文件
 -s, --silent 关闭警告
 --verbose 打印进度信息
+
+3.
+命令：fdisk
+用途：观察硬盘之实体使用情形与分割硬盘用
+用法：在 console 上输入 fdisk -l /dev/sda ，观察硬盘之实体使用情形。
+
+4.
+命令:df
+使用方式: df [选项]... [FILE]...
+用途：显示档案系统的状况，或是看所有档案系统的状况(预设值)
+
+5.
+/proc/partitions 为linux 记录的分区信息，可以使用cat more查看
+
+cat /proc/partitions
+
