@@ -1,0 +1,20 @@
+1.java虚拟机内存不够
+
+修改以下文件：
+
+sudo vim prebuilts/sdk/tools/jack-admin 
+
+JACK_SERVER_COMMAND="java -XX:MaxJavaStackTraceDepth=-1 -Djava.io.tmpdir=$TMPDIR $JACK_SERVER_VM_ARGUMENT    S -Xmx32768M -cp $LAUNCHER_JAR $LAUNCHER_NAME"
+
+增加-Xmx32768M，增加32G内存
+
+
+
+
+2.Communication error with Jack server (52). Try 'jack-diagnose'
+
+执行：
+	a. sudo ./prebuilts/sdk/tools/jack-admin kill-server
+	b. sudo ./prebuilts/sdk/tools/jack-admin uninstall-server
+
+重新make
