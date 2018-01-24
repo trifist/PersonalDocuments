@@ -31,3 +31,6 @@ JACK_SERVER_COMMAND="java -XX:MaxJavaStackTraceDepth=-1 -Djava.io.tmpdir=$TMPDIR
 
 
 3.执行emulator的时候，可以通过-show-kernel来获取内核log，-no-window来不开启系统界面
+
+
+4.emulator里面，adb pull /proc/config.gz可以拿出配置文件，gunzip config.gz && mv config .config可以解压并复制文件
