@@ -25,3 +25,9 @@ JACK_SERVER_COMMAND="java -XX:MaxJavaStackTraceDepth=-1 -Djava.io.tmpdir=$TMPDIR
 	b. sudo ./prebuilts/sdk/tools/jack-admin uninstall-server
 
 重新make
+
+
+
+
+
+3.执行emulator的时候，可以通过-show-kernel来获取内核log，-no-window来不开启系统界面
