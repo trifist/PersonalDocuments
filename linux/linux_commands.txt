@@ -49,6 +49,18 @@ susb命令是一个学习USB驱动开发，认识USB设备的助手，推荐大�
 使用方式：source [FILE] 或 . [FILE]
 作用：在当前shell中执行FILE脚本，里面所做的变量定义等都会保留在当前shell中。（如果是./FILE这种，是新启一个shell运行。除非export变量，否则变量不带回）
 
+8.dig命令
+使用方式：dig [域名] (+short ...)
+作用：通过dns服务器，查看域名的ip
+
+9.netstat命令
+使用方式：netstat -tunlp
+作用：查看网络以及端口占用情况
+
+10.ifconfig命令
+使用方式：ifconfig
+作用：查看网络情况（ip地址等）
+
 
 
 
