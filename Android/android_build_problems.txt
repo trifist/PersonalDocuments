@@ -11,7 +11,7 @@ sudo apt-get install -y git flex bison gperf build-essential libncurses5-dev:i38
 
 sudo vim prebuilts/sdk/tools/jack-admin 
 
-JACK_SERVER_COMMAND="java -XX:MaxJavaStackTraceDepth=-1 -Djava.io.tmpdir=$TMPDIR $JACK_SERVER_VM_ARGUMENT    S -Xmx32768M -cp $LAUNCHER_JAR $LAUNCHER_NAME"
+JACK_SERVER_COMMAND="java -XX:MaxJavaStackTraceDepth=-1 -Djava.io.tmpdir=$TMPDIR $JACK_SERVER_VM_ARGUMENTS -Xmx32768M -cp $LAUNCHER_JAR $LAUNCHER_NAME"
 
 增加-Xmx32768M，增加32G内存
 
