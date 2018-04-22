@@ -15,7 +15,10 @@ JACK_SERVER_COMMAND="java -XX:MaxJavaStackTraceDepth=-1 -Djava.io.tmpdir=$TMPDIR
 
 增加-Xmx32768M，增加32G内存
 
+修改完要重启一下服务生效：
 
+prebuilts/sdk/tools/jack-admin kill-server
+prebuilts/sdk/tools/jack-admin start-server
 
 
 2.Communication error with Jack server (52). Try 'jack-diagnose'
