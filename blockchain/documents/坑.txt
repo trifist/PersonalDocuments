@@ -1,0 +1,9 @@
+1、truffle在windows中，要删除配置文件truffle.js保留truffle-config.js，否则无法使用
+
+2、matamesk连ganache私有链时，需要在设置里面点击reset account，以此来清空缓存，否则不能部署，会出现nounce错误的问题
+
+3、remix出现	0x0 Transaction mined but execution failed， 此时有可能是部署合约时的gasLimit不足，需要提升gas
+
+4、转账出现“the constructor should be payable if you send value”的时候不一定是构造函数的问题，还有可能是转出的账户没有这么多钱
+
+5、在v0.5.0的编译器中，bytes数据靠左对齐（后面补零），uint数据靠右对齐（前面补零）。例如bytes1的0x01变成bytes2时，结果为0x0100。若是uint则为0x0001
