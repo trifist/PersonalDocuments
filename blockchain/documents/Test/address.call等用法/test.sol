@@ -1,17 +1,21 @@
-pragma solidity ^0.4.16;
+pragma solidity ^0.5.0;
 
 contract Counter
 {
     uint public count = 10;
     uint public fb = 0;
     
-    function() public {
+    function() external {
         fb++;
     }
     
     function inc(uint num) public returns (uint)
     {
         return count += num;
+    }
+    
+    function getCount() public view returns (uint) {
+        return count;
     }
 }
 
@@ -32,12 +36,14 @@ contract CallCounter
 contract Caller_by_call
 {
     uint public count = 20;
-    bool public success = false;
-    function callByAddr(address addr) public returns (bool)
+
+    function callByAddr(address addr) public returns (bool, bytes memory)
     {
-        bytes4 methodId = bytes4(keccak256("inc(uint256)"));
-        success = addr.call(methodId, 2);
-        return success;
+        bytes memory data = abi.encodeWithSignature("inc(uint256)", 2);
+        bytes memory result;
+        bool success;
+        (success, result) = addr.call(data);
+        return (success, result);
     }
 }
 
@@ -46,21 +52,41 @@ contract Caller_by_call
 contract Caller_by_delegatecall
 {
     uint public count = 20;
-    bool public success = false;
-    function callByAddr(address addr) public returns(bool)
+
+    function callByAddr(address addr) public returns(bool, bytes memory)
     {
-        bytes4 methodId = bytes4(keccak256("inc(uint256)"));
-        success = addr.delegatecall(methodId, 2);
-        return success;
+        bytes memory data = abi.encodeWithSignature("inc(uint256)", 2);
+        bytes memory result;
+        bool success;
+        (success, result) = addr.delegatecall(data);
+        return (success, result);
+    }
+}
+
+//staticcall只能调用view和pure函数
+contract Caller_by_staticcall
+{
+    uint public count = 20;
+
+    function callByAddr(address addr) public view returns(bool, bytes memory)
+    {
+        bytes memory data = abi.encodeWithSignature("getCount()");
+        bytes memory result;
+        bool success;
+        (success, result) = addr.staticcall(data);
+        return (success, result);
     }
 }
 
 contract Caller_by_delegatecall_without_count
 {
-    function callByAddr(address addr) public returns(bool)
+    function callByAddr(address addr) public returns(bool, bytes memory)
     {
-        bytes4 methodId = bytes4(keccak256("inc(uint256)"));
-        return addr.delegatecall(methodId, 2);
+        bytes memory data = abi.encodeWithSignature("inc(uint256)", 2);
+        bytes memory result;
+        bool success;
+        (success, result) = addr.delegatecall(data);
+        return (success, result);
     }
 }
 

@@ -1,5 +1,5 @@
 ----------------------------------------------测试1， 结果a=2， b=3， n=3-------------------------------------------------
-pragma solidity ^0.4.25;
+pragma solidity ^0.5.0;
 
 contract Base1 {
     uint public n;
@@ -26,7 +26,7 @@ contract Derived is Base1, Base2 {
 
 
 ----------------------------------------------测试2， 结果a=2， b=3， n=2-------------------------------------------------
-pragma solidity ^0.4.25;
+pragma solidity ^0.5.0;
 
 contract Base1 {
     uint public n;
